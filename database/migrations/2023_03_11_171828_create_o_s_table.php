@@ -12,14 +12,12 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('urls', function (Blueprint $table) {
+        Schema::create('o_s', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('destination');
-            $table->string('short');
-            $table->integer('clicks');
-            $table->string('userId');
-
+            $table->enum('name', ['windows', 'macos', 'linux', 'others']);
+            $table->integer('urlId');
+            $table->integer('count');
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('urls');
+        Schema::dropIfExists('o_s');
     }
 };
