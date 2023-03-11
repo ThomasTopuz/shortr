@@ -34,6 +34,6 @@ class UrlController extends Controller
         \Log::info(Auth::id());
         $urls = Url::where('userId', Auth::user()->id)->get();
         \Log::info($urls);
-        return view('welcome', ['myUrls'=> $urls]);
+        return view('welcome', ['myUrls'=> $urls, 'user'=>Auth::user()]);
     }
 }

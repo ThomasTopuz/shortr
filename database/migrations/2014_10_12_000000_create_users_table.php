@@ -21,6 +21,8 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->string('oAuthId')->unique();
+            $table->string('avatar');
+
         });
     }
 

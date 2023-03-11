@@ -13,6 +13,9 @@ class SocialController extends Controller
     public function handleCallback()
     {
         $user = Socialite::driver('google')->stateless()->user();
+
+        \Log::info(json_encode($user));
+
         $existingUser = User::where('oAuthId', strval($user->id))->first();
         if ($existingUser) {
             Auth::login($existingUser);
@@ -21,6 +24,7 @@ class SocialController extends Controller
                 'name' => $user->name,
                 'oAuthId' => strval($user->id),
                 'email' => $user->email,
+                'avatar'=>$user->user['picture']
             ]);
             Auth::login($newUser);
         }
