@@ -51,10 +51,17 @@
         <hr>
         <br>
         <h3 class="text-xl font-bold">Browsers</h3>
+        @foreach($browser as $browserEntry)
+            <p>{{$browserEntry['name']}}: {{$browserEntry['count']}}</p>
+        @endforeach
         <br>
         <hr>
         <br>
         <h3 class="text-xl font-bold">Geo locations</h3>
+        @foreach($location as $locationEntry)
+            <p>{{$locationEntry['name']}}: {{$locationEntry['count']}}</p>
+        @endforeach
+
     </div>
 </div>
 </body>

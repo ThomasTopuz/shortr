@@ -12,10 +12,14 @@ class UrlController extends Controller
 {
 
     private OsAnalysisService $osAnalysisService;
+    private BrowserAnalysisService $browserAnalysisService;
+    private LocationAnalysisService $locationAnalysisService;
 
-    public function __construct(OsAnalysisService $osAnalysisService)
+    public function __construct(OsAnalysisService $osAnalysisService, BrowserAnalysisService $browserAnalysisService, LocationAnalysisService $locationAnalysisService)
     {
         $this->osAnalysisService = $osAnalysisService;
+        $this->browserAnalysisService = $browserAnalysisService;
+        $this->locationAnalysisService = $locationAnalysisService;
     }
 
     public function shorten(Request $request)
@@ -44,9 +48,8 @@ class UrlController extends Controller
         $agent = $request->header('User-Agent');
 
         $this->osAnalysisService->handle($url, $agent);
-
-        // check OS
-
+        $this->browserAnalysisService->handle($url, $agent);
+        $this->locationAnalysisService->handle($url, $request);
 
         return redirect($found[0]->destination);
     }
@@ -62,9 +65,13 @@ class UrlController extends Controller
         if (count($found) == 0) {
             return redirect('/');
         }
-        $osEntries = OS::where('urlId',$found[0]->id)->get();
+        $id = $found[0]->id;
 
-        return view('stats', ['user' => Auth::user(), 'url' => $found[0], 'os' => $osEntries],);
+        $osStats = $this->osAnalysisService->getStats($id);
+        $broserStats = $this->browserAnalysisService->getStats($id);
+        $locationStats = $this->locationAnalysisService->getStats($id);
+
+        return view('stats', ['user' => Auth::user(), 'url' => $found[0], 'os' => $osStats, 'browser' => $broserStats, 'location' => $locationStats]);
     }
 
     public function index(Request $request)

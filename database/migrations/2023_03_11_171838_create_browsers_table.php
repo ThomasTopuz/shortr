@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('browsers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->enum('name', ['chrome', 'safari', 'firefox', 'others']);
+            $table->integer('urlId');
+            $table->integer('count');
         });
     }
 
