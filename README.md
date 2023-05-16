@@ -36,14 +36,11 @@ Clonare il progetto
 git clone git@github.com:ThomasTopuz/shortr.git
 ```
 
-Eseguire il database locale tramite docker
+Aggiungere un file .env seguedo l'esempio di .env.example
+
+Eseguire il database locale ed il web server tramite docker docker compose
 ```
 docker compose  up
-```
-
-Eseguire il web server laravel
-```
-php artisan serve
 ```
 
 Navigare sull'app all'indirizzo
