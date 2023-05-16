@@ -15,6 +15,12 @@
 Ho sviluppato una applicazione web che permette di accorciare gli url tramite un interfaccia semplice ed intuitiva,
 gestendo l'autenticazione tramite il protocollo OpenId Connect utilizzando Google come Identity Provider.
 
+### Librerire utilizzate
+Oltre a laravel ho utilizzato le seguenti librerie
+- sinergi/browser-detector per riconoscere il browser della richiesta, per le statistiche
+- stevebauman/location per trovare la posizione geografica di una richiesta, sempre per le statistiche
+- laravel/socialite per quanto rigurara l'autenticazione tramite protocollo openidconnect
+
 ### Esempio di utilizzo
 Quando si apre la applicazione viene fatto il redirect a Google, che funge da identity provider.
 In seguito si atterra sulla pagina home dell'app, è possibile accorciare gli url, fornendo un link, e si riceve un link accorciato.
