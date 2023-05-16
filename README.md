@@ -18,7 +18,7 @@ gestendo l'autenticazione tramite il protocollo OpenId Connect utilizzando Googl
 ### Esempio di utilizzo
 Quando si apre la applicazione viene fatto il redirect a Google, che funge da identity provider.
 In seguito si atterra sulla pagina home dell'app, è possibile accorciare gli url, fornendo un link, e si riceve un link accorciato.
-Infine è possibile distribuire questo link accorciato e monitorare le statistiche relative al tipo di browser, luogo, sistema operativo, ecc...
+Infine è possibile distribuire questo link accorciato e monitorare le statistiche relative al tipo di browser, posizione geografica e sistema operativo.
 
 ### Setup in locale
 Per eseguire il progetto in locale è necessario seguire i seguenti step
@@ -42,5 +42,5 @@ php artisan serve
 
 Navigare sull'app all'indirizzo
 ```
-localhost:8080
+localhost:8000
 ```
