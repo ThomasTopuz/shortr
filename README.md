@@ -19,3 +19,27 @@ Quando si apre la applicazione viene fatto il redirect a Google, che funge da id
 In seguito si atterra sulla pagina home dell'app, è possibile accorciare gli url, fornendo un link, e si riceve un link accorciato.
 Infine è possibile distribuire questo link accorciato e monitorare le statistiche relative al tipo di browser, luogo, sistema operativo, ecc...
 
+### Setup in locale
+Per eseguire il progetto in locale è necessario seguire i seguenti step
+
+Installare php, composer e laravel sul proprio ambiente
+
+Clonare il progetto
+```
+git clone git@github.com:ThomasTopuz/shortr.git
+```
+
+Eseguire il database locale tramite docker
+```
+docker compose  up
+```
+
+Eseguire il web server laravel
+```
+php artisan serve
+```
+
+Navigare sull'app all'indirizzo
+```
+localhost:8080
+```
