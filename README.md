@@ -1,5 +1,5 @@
 ## Shortr - Accorciatore di url sviluppato in laravel
-
+https://embed-ssl.wistia.com/deliveries/fece433e54f817872309273fb46fe6e9.jpg
 ### Obiettivi del progetto
 
 ### Gli obiettivi del progetto sono:
